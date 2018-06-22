@@ -1,1 +1,7 @@
 include ':app'
+
+includeBuild('./plugins/greeting') {
+    dependencySubstitution {
+        substitute module('com.importre.example:greeting') with project(':')
+    }
+}
