@@ -6,8 +6,8 @@ import org.gradle.kotlin.dsl.invoke
 
 class GreetingPlugin : Plugin<Project> {
 
-    private fun Project.greeting() {
-        println("Hello, World!")
+    private fun greeting(): String {
+        return "Hello, World!"
     }
 
     override
@@ -16,7 +16,9 @@ class GreetingPlugin : Plugin<Project> {
             "greeting" {
                 group = "kotlin-flavored"
                 description = "코틀린 맛 그래들 플러그인"
-                doLast { greeting() }
+                doLast {
+                    greeting().run(::println)
+                }
             }
         }
     }
